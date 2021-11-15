@@ -7,5 +7,7 @@ const cobaObjek = {
     },
 }
 
-// module.exports.cobaObjek = cobaObjek;
+module.exports.cobaObjek = cobaObjek;
 console.log(cobaObjek.greet());
+
+

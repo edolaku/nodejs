@@ -15,3 +15,6 @@ sayHi(names.wapek);
 sayHi(names.joko);
 sayHi(names.wahyu);
 console.log(data);
+
+// mengambil isi dari cobaObjek
+console.log(names.cobaObjek.greet());

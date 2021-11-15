@@ -6,14 +6,14 @@ const wapek = "wapek";
 const joko = "joko";
 const wahyu = "wahyu";
 
-// const cobaObjek = {
-//     nama: "wapek"
-//     bagian: "umum"
-//     jabatan: "staf",
-//     function greet() {
-//         console.log(`halo, nama saya ${this.nama}, bekerja pada bagian ${this.bagian} sebagai ${this.jabatan}`);
-//     }
-// }
+const cobaObjek = {
+    nama: "wapek",
+    bagian: "umum",
+    jabatan: "staf",
+    greet() {
+        return `halo, nama saya ${this.nama}, bekerja pada bagian ${this.bagian} sebagai ${this.jabatan}`;
+    }
+}
 
 // export
 module.exports = {
@@ -21,4 +21,6 @@ module.exports = {
     wahyu,
     wapek
 };
-// module.exports.cobaObjek = cobaObjek;
+
+//export cobaObjek yg berisi objek
+module.exports.cobaObjek = cobaObjek;
