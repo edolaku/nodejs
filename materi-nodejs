@@ -14,3 +14,9 @@ module => info about current module (file)
 process => info about environment where the program is being executed
 
 module dapat meng-export file kita, bahkan kita dapat batasi apa saja yg diexport (only share minimum)
+
+beberapa contoh built-in modules nodejs:
+#1 OS
+#2 path
+#3 FS
+#$ HTTP
