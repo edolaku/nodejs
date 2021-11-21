@@ -1,0 +1,31 @@
+untuk masuk ke dalam node dg git bash, ketikkan dulu node, lalu dia akan masuk ke mode REPL (read, evaluate, print, loop)
+
+.help untuk tau perintah yg akan digunakan
+
+untuk memanggil file yg akan dieksekusi, .load 'nama file'
+
+untuk menjalankan file yg telah dibuat, dapat menggunakan perintah ini di luar repl mode, node 'nama file'
+
+GLOBALS - NO WINDOW!!!
+__dirname => path to current directory
+__filename => file name
+require => function to use modules (commonJS)
+module => info about current module (file)
+process => info about environment where the program is being executed
+
+module dapat meng-export file kita, bahkan kita dapat batasi apa saja yg diexport (only share minimum)
+
+beberapa contoh built-in modules nodejs:
+#1 OS
+#2 path
+#3 FS
+#$ HTTP
+
+NPM (node Package Manager) => untuk menginstall npm, kita arahkan dulu dari gitbash atau terminal ke folder root/folder yg akan digunakan untuk membuat aplikasi. lalu masukkan perintah "npm init" untuk menginisiasikan folder tsb. lalu akan diminta membuat nama package, jika diabaikan maka akan dibuat sesuai dengan nama foldernya, lalu akan diminta mengisi deskripsi, mengisi entry point (file pertama yg akan diakses oleh aplikasi, biasanya app.js/index.js). lalu masukkan input lainnya yg diminta (kosongkan jika perlu). lalu klik OK
+Dalam file package.json terdapat scripts untuk menjalankan aplikasi, namun menggunakan perintah npm. kita dapat memasukkan perintah ""start": "node app"" artinya ketika kita memasukkan perintah "npm start" pada terminal, maka yg akan dijalankan adalah kode di dalam script start tsb.
+
+untuk menginstall package, kita dapat ke url npm, lalu pilih package yg dibutuhkan, dan pada terminal pastikan telah mengarah ke folder root. ketikkan perintah "npm i "nama package"@"versi package"" i adalah kependekan dari install, dan jika tanpa menginput versi package maka akan diinstall versi yg paling baru.
+untuk meng-uninstall package, dapat menggunakan perintah "npm uninstall 'nama package'". jika package tersebut terinstall secara global, maka dapat dilakukan dengan perintah "npm uninstall -g 'nama package'" -g adalah global
+
+yargs package pd npm => untuk membangun command line tools dengan mengurai argumen dan men-generate sebuah UI yg elegan
+seperti biasa, panggil dulu package dengan require, lalu dapat dengan perintah console.log(yargs.argv) untuk mengelola perintah pada terminal. ketika kita masukkan perintah "node app tambah  --nama="wapek"" maka akan muncul balasan di terminal berupa objek seperti berikut: "{ _: [ 'tambah' ], nama: 'wapek', '$0': 'app' }" ada "tambah" merupakan array yg berisi perintahnya, dan isinya key nama, dengan value wapek.
