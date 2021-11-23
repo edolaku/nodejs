@@ -65,13 +65,17 @@ const daftarKontak = () => {
 };
 
 const detailKontak = (nama) => {
+
     const contacts = ambilKontak();
 
+    // cari apakah kontak yg diinput sudah ada di database
     const contact = contacts.find((contact) => { contact.nama === nama });
 
     if (!contact) {
         console.log(`${nama} tidak ditemukan`);
-    }
+        return false;
+    };
+    console.log(contact.nama);
 
 }
 
