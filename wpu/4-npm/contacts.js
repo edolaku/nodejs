@@ -90,30 +90,37 @@ const detailKontak = (nama) => {
 }
 
 const hapusKontak = (nama) => {
-    // cara menghapus disini adalah dengan cara mencari nama yg diinput, lalu membuat array baru, dan mengcopy semua array yg ada di database, lalu akan dicopykan lagi ke database, tetapi tanpa mengikutkan nama yg diinputkan tadi, sehingga nama tersebut akan hilang dari database
+
+    // <!-- CARA SAYA MENGHAPUS KONTAK -->
     const contacts = ambilKontak();
-    const contact = contacts.filter((contact) =>
-        contact.nama.toLowerCase() !== nama.toLowerCase()
+    const contact = contacts.find((contact) =>
+        contact.nama.toLowerCase() === nama.toLowerCase()
     );
     if (!contact) {
         console.log(`${nama} tidak ditemukan`);
         return false;
     };
-
-
-
-
-    // contacts.splice(contact, 1);
-    fs.writeFileSync(filePath, JSON.stringify(contact, null, 2));
+    // cari pd index berapa variabel contact di dalam contacts
+    const newContact = contacts.indexOf(contact);
+    // hilangkan dari contacts menurut variabelnya
+    contacts.splice(newContact, 1);
+    // masukkan kembali ke database
+    fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
     console.log(`${contact.nama} berhasil dihapus`);
+    //////////////////////////////////////////////////////////////////////////
 
+    // <!-- CARA WPU MENGHAPUS KONTAK -->
 
-
-
-    // cari apakah kontak yg diinput sudah ada di database. ketika menggunakan .find ketika array yg dicari sudah ketemu, maka penelusuran akan berhenti, namun jika menggunakan .filter, dia akan menelusuri hingga selesai ke semua array
-    // jadi .filter dibawah ini adalah mengkopy kontak yg ada pd database (contacts), tapi dengan TANPA nama yg diinputkan
-    // const newContact = contacts.filter((contact) => contact.nama.toLowerCase !== nama.toLowerCase);
-    // fs.writeFileSync(filePath, JSON.stringify(newContact, null, 2));
+    // // cara menghapus disini adalah dengan cara mencari nama yg diinput dan dikeluarkan dari variabel, lalu membuat array baru, dan mengcopy semua array yg ada di database, lalu akan dicopykan lagi ke database, tetapi tanpa mengikutkan nama yg diinputkan dikeluarkan, sehingga nama tersebut akan hilang dari database
+    // // cari apakah kontak yg diinput sudah ada di database. ketika menggunakan .find ketika array yg dicari sudah ketemu, maka penelusuran akan berhenti, namun jika menggunakan .filter, dia akan menelusuri hingga selesai ke semua array
+    // // jadi .filter dibawah ini adalah mengkopy kontak yg ada pd database (contacts), tapi dengan TANPA nama yg diinputkan
+    // const contact = contacts.filter((contact) => contact.nama.toLowerCase() !== nama.toLowerCase());
+    // if (contacts.length === contact.length) {
+    //     console.log(`${nama} tidak ditemukan`);
+    //     return false;
+    // }
+    // fs.writeFileSync(filePath, JSON.stringify(contact, null, 2));
+    // console.log(`${nama} berhasil dihapus`);
 }
 
 // export fungsi simpanKontak dan tulisPertanyaan ke app.js, karena pd objek, key dan valuenya sama jadi tulis satu saja
