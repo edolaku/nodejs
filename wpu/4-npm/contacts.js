@@ -92,8 +92,8 @@ const detailKontak = (nama) => {
 const hapusKontak = (nama) => {
     // cara menghapus disini adalah dengan cara mencari nama yg diinput, lalu membuat array baru, dan mengcopy semua array yg ada di database, lalu akan dicopykan lagi ke database, tetapi tanpa mengikutkan nama yg diinputkan tadi, sehingga nama tersebut akan hilang dari database
     const contacts = ambilKontak();
-    const contact = contacts.find((contact) =>
-        contact.nama.toLowerCase() === nama.toLowerCase()
+    const contact = contacts.filter((contact) =>
+        contact.nama.toLowerCase() !== nama.toLowerCase()
     );
     if (!contact) {
         console.log(`${nama} tidak ditemukan`);
@@ -103,8 +103,8 @@ const hapusKontak = (nama) => {
 
 
 
-    contacts.splice(contact, 1);
-    fs.writeFileSync(filePath, JSON.stringify(contacts, null, 2));
+    // contacts.splice(contact, 1);
+    fs.writeFileSync(filePath, JSON.stringify(contact, null, 2));
     console.log(`${contact.nama} berhasil dihapus`);
 
 
