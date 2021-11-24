@@ -1,10 +1,17 @@
 [
   {
-    "nama": "wahyu",
-    "noHP": "08578493943"
+    "nama": "wapek",
+    "email": "wapek@gmail.com",
+    "noHP": "085640283012"
   },
   {
     "nama": "joko",
-    "noHP": "08578493956"
+    "email": "joko@gmail.com",
+    "noHP": "08564567891"
+  },
+  {
+    "nama": "nurul",
+    "email": "nurul@gmail.com",
+    "noHP": "085642345678"
   }
 ]
