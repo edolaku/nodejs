@@ -22,13 +22,12 @@ const hapusKontak = (nama) => {
 
     const contacts = ambilKontak()
     // console.log(contacts[0]);
-    const contact = contacts.filter((contact) => contact.nama.toLowerCase() !== nama.toLowerCase()
-    );
+    const contact = contacts.filter((contact) => contact.nama.toLowerCase() !== nama.toLowerCase());
 
-    if (contacts.length === contact.length) {
-        console.log(`${nama} tidak ditemukan`);
-        return false;
-    }
+    // if (contacts.length === contact.length) {
+    //     console.log(`${nama} tidak ditemukan`);
+    //     return false;
+    // }
 
     // const index = contacts.indexOf(contact);
     // if (index >= 0) {
